@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>analyzer_target</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+
+  <!-- works on linux -->
+  <!-- silently doesn't work on windows -->
+   <Analyzer Include="../../empty-analyzer/EmptyAnalyzer/output/EmptyAnalyzer.dll" />
+
+
+    <!-- works on linux -->
+    <!-- throws error on windows -->
+    <!-- <Analyzer Include="../RoslynTools/output/Analyzers.dll" /> -->
+
+  </ItemGroup>
+
+</Project>
+

@@ -1,0 +1,7 @@
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+bin/
+obj/
+.idea/
+EmptyAnalyzer.sln.DotSettings.user

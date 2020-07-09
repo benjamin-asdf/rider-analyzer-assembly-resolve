@@ -1,0 +1,13 @@
+<Project>
+    <PropertyGroup>
+        <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <NewtonsoftJsonVersion>12.0.3</NewtonsoftJsonVersion>
+        <MicrosoftBuildLocatorVersion>1.2.6</MicrosoftBuildLocatorVersion>
+        <MicrosoftCodeAnalysisVersion>3.6.0</MicrosoftCodeAnalysisVersion>
+        <MicrosoftBuildVersion>16.5.0</MicrosoftBuildVersion>
+
+        <SystemCodeDomVersion>4.7.0</SystemCodeDomVersion>
+        <MicrosoftWin32RegistryVersion>4.7.0</MicrosoftWin32RegistryVersion>
+    </PropertyGroup>
+</Project>

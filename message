@@ -1,0 +1,61 @@
+Hello rider support,
+
+I have issues when trying to reference my own analzyers in rider. 
+It either seems to fail silently or there are assembly not found errors.
+Works all on linux (tested ubuntu focal).
+
+
+I have reproduced this in a simple setup on [this github repo](https://github.com/rtnlmeme-DestroyerOfDeath/rider-analyzer-assembly-resolve) .
+
+1) clone repo
+2) open the project "analzyer-target" in rider
+3) enable roslyn analzyers
+
+Expected (and happens on linux):
+- Analzyer shows up in "Roslyn Settings",
+- Class declaration shows diagnostic
+
+Actual:
+-> "EmptyAnalyzer" shows up in the solution explorer, 
+but not in the "Roslyn Settings" and there is no further feedback on failure.
+Class declaration doesn't show diagnostic.
+
+
+More info:
+
+- This also happens when we make a 'pulish' build of the analyzer with rider.
+
+- Maybe related:
+
+This is the output when I build the target project with visual studio:
+```
+1>------ Build started: Project: analyzer-target, Configuration: Debug Any CPU ------
+1>CSC : warning CS8032: An instance of analyzer EmptyAnalyzer.BestAnalyzer cannot be created from C:\Users\USER\repos\rider-analyzer-assembly-resolve\empty-analyzer\EmptyAnalyzer\bin\Release\netcoreapp3.1\EmptyAnalyzer.dll : Could not load file or assembly 'Microsoft.CodeAnalysis, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified..
+1>analyzer-target -> C:\Users\USER\repos\rider-analyzer-assembly-resolve\analyzer-target\AnalzyerTarget\AnalyzerTarget\bin\Debug\netstandard2.0\analyzer-target.dll
+1>Done building project "analyzer-target.csproj".
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+```
+
+
+Second issue I have:
+
+0) In the test repo
+1)  change analyzer-target.csproj to reference the the "RoslynTools" Analzyers,
+
+this is closer to the project structure I have for my actual analzyer project. It shows this error in rider:
+
+
+```
+The following issues were encountered while loading projects for Roslyn analyzers.
+            These issues affect only Roslyn analyzers and will not affect code analysis provided by Rider itself.
+In project analyzer-target: All analyzers from assembly Analyzers failed to load: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information. Could not load file or assembly 'System.Runtime, Version=4.2.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+```
+
+More info:
+
+- In my actual project, I get an additional warning of the same kind about "System.Collection.Generic".
+
+
+Thanks a lot for you help in advance!
+
+
