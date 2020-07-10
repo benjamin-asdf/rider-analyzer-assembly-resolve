@@ -1,4 +1,4 @@
-Hello rider support,
+Hello,
 
 I have issues when trying to reference my own analzyers in rider. 
 It either seems to fail silently or there are assembly not found errors.
