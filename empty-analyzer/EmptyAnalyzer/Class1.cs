@@ -22,7 +22,7 @@ namespace EmptyAnalyzer {
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(diagnostic);
 
-        
+
         public override void Initialize(AnalysisContext context) {
 
             context.RegisterSyntaxNodeAction((ctx => {
@@ -34,7 +34,7 @@ namespace EmptyAnalyzer {
 
 
     }
-    
+
     
 }
 

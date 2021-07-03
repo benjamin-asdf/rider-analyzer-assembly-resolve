@@ -1,0 +1,6 @@
+#!/bin/sh
+
+
+dotnet build || exit 1
+rm -rf output
+cp -r bin/Debug/netcoreapp3.1/ ./output
